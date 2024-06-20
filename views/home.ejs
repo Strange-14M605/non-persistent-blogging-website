@@ -1,0 +1,24 @@
+<%- include("partials/header.ejs") %>
+
+<form method="get" action="/newpost">
+    <button type="submit" class="button" role="button">Create new post</button>
+</form>
+
+<% if(locals.title){  %>
+    <% for(let i=0; i<title.length; i++){ %>
+        <div class="card">
+            <h1><%= title[i] %></h1>
+            <p><%= tag[i] %></p>
+                <button class="button" formaction="/view">View</button>
+        </form>
+        </div>
+    <% } %>
+<% }%>
+<br>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<%- include("partials/footer.ejs") %>
+
+
