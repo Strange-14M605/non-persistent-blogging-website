@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+ <html lang="en">
+     <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Jova's Blog</title>
+   <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    
+    <% if(locals.newPost){ %>
+        <h2><%= newPost %></h1>
+        <form action="/" method="POST">
+            <!-- TITLE -->
+            <label for="title">Enter Title..</label><br>
+            <input type="text" name="title"><br>
+
+            <!-- TAG -->
+            <p>Choose a tag..</p>
+
+            <input type="radio" id="artTag" name="favoriteColor" value="red">
+            <label for="artTag">Art</label><br>
+
+            <input type="radio" id="techTag" name="favoriteColor" value="green">
+            <label for="techTag">Tech</label><br>
+
+            <input type="radio" id="productivityTag" name="favoriteColor" value="blue">
+            <label for="productivityTag">Productivity</label><br>
+
+            <!-- CONTENT -->
+            <textarea name="blogContent" placeholder="Start writing our blog here.."></textarea><br>
+
+            <button type="submit" class="button">Create</button>
+        </form>
+
+    <% }else if(locals.empty){ %>
+        <form>
+        <button type="submit" class="button" formaction="/newPost">Create new post</button>
+        </form>
+
+        <% for(let i=0; i< blogList.length; i++){ %>
+            <div class="card">
+                <h2><%= blogList[i][0] %></h2>
+                <p><%= blogList[i][1] %></p>
+            </div>
+        <% } %>
+        
+    <% }else{ %>
+
+        <p>You haven't created any posts yet.</p>
+       <form>
+        <button type="submit" class="button" formaction="/newPost">Create new post</button>
+      </form>
+      
+   <% } %>
+   
+   <%- include("partials/footer.ejs") %>
+
+   <!-- <script href="functions.js"></script> -->
+</body>
+</html>
