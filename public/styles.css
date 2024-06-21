@@ -1,19 +1,21 @@
-body{
-    background-color: bisque;
-    text-align: center;
-    align-items:center;
-  font-family:monospace, Tahoma, Geneva, Verdana, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+body {
+  background-color: bisque;
+  text-align: center;
+  align-items: center;
+  font-family: monospace, Tahoma, Geneva, Verdana, sans-serif, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
   padding-top: 10px;
-    }
+}
 
-h1, h2{
+h1,
+h2 {
   padding: 20px 0;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
-  }
+}
 
 textarea {
   width: 60%;
@@ -45,9 +47,9 @@ textarea {
   box-sizing: border-box;
   color: #111;
   cursor: pointer;
-  font-family:monospace;
+  font-family: monospace;
   font-size: 16px;
-  height:48px;
+  height: 48px;
   justify-content: center;
   line-height: 24px;
   max-width: 100%;
@@ -71,7 +73,7 @@ textarea {
   position: absolute;
   top: -2px;
   transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   z-index: -1;
 }
 
@@ -95,7 +97,6 @@ textarea {
 }
 
 /* CARD BUTTON CSS */
-
 .card-button {
   align-items: center;
   background-color: #fee6e3;
@@ -104,12 +105,11 @@ textarea {
   box-sizing: border-box;
   color: #111;
   cursor: pointer;
-  font-family:monospace;
+  font-family: monospace;
   font-size: 16px;
-  height:fit-content;
+  height: fit-content;
   justify-content: center;
   line-height: 24px;
-  /* max-width: 100%; */
   padding: 0 25px;
   position: relative;
   text-align: center;
@@ -118,7 +118,7 @@ textarea {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin: 20px;
-  width:65%;
+  width: 65%;
 }
 
 .card-button:after {
@@ -132,7 +132,7 @@ textarea {
   position: absolute;
   top: -2px;
   transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   z-index: -1;
 }
 
@@ -162,42 +162,6 @@ textarea {
   text-align: right;
 }
 
-/* DROPDOWN BUTTON */
-/* Container needed to position the dropdown content */
-/* .dropdown {
-  position: relative;
-  display: inline-block;
-} */
-
-/* Dropdown content (hidden by default) */
-/* .dropdown-content {
-  display: none;
-  position: absolute;
-  z-index: 1;
-} */
-
-/* Links inside the dropdown */
-/* .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-} */
-
-/* Show the dropdown content when the button is hovered */
-/* .dropdown:hover .dropdown-content {
-  display: block;
-} */
-
-/* Change color of dropdown links on hover */
-/* .dropdown-content a:hover {
-  background-color: #000000;
-  color: white;
-}
- */
-
-
-/* ////////// */
 /* Dropdown container */
 .dropdown {
   position: relative;
@@ -206,7 +170,7 @@ textarea {
 
 /* Button styling */
 .dropdown .dropbtn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 16px;
   font-size: 16px;

@@ -7,7 +7,6 @@ const app= express();
 const port= 3000
 
 const API_URL="https://api.notion.com/v1/";
-// const configure = require('./config.json');
 const yourToken= config.API_TOKEN;
 
 let blogList= [];
@@ -18,6 +17,7 @@ var func;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+//configuration
 const configure={
     headers:{
         Authorization: `Bearer ${yourToken}`,
@@ -25,6 +25,7 @@ const configure={
     }
 };
 
+//API response
 const response= await axios.post(`${API_URL}databases/f3905f63-6ea3-437f-a41c-ed5f939d9d5e/query`,{}, configure);
 for(let i=0;i<(response.data.results).length; i++){
     title.push(response.data.results[i].properties.Name.title[0].plain_text);
@@ -61,7 +62,8 @@ app.post("/",(req,res)=>{
 app.post("/viewPost", (req,res)=>{
     res.render("index.ejs",{
         viewPost: 1,
-        blog: blogList[+req.body.blogNumber],        //note: the '+' symbol coverts the string blogNumber to integer to pass to arry in index.ejs!
+        blog: blogList[+req.body.blogNumber],        
+        //note: the '+' symbol coverts the string blogNumber to integer to pass to arry in index.ejs!
         blogNumber: +req.body.blogNumber
     });
 })
