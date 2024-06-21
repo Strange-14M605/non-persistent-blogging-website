@@ -7,46 +7,67 @@
    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <%- include("partials/header.ejs") %>
+    
     
     <% if(locals.newPost){ %>
-        <h2><%= newPost %></h1>
+        <%- include("partials/header.ejs") %>
+        <h2><%= newPost %></h2>
         <form action="/" method="POST">
             <!-- TITLE -->
             <label for="title">Enter Title..</label><br>
-            <input type="text" name="title"><br>
+            <input type="text" name="title" class="title-input" required><br>
 
             <!-- TAG -->
             <p>Choose a tag..</p>
 
-            <input type="radio" id="artTag" name="favoriteColor" value="red">
+            <input type="radio" id="artTag" name="tag" value="art" required>
             <label for="artTag">Art</label><br>
 
-            <input type="radio" id="techTag" name="favoriteColor" value="green">
+            <input type="radio" id="techTag" name="tag" value="tech" required>
             <label for="techTag">Tech</label><br>
 
-            <input type="radio" id="productivityTag" name="favoriteColor" value="blue">
+            <input type="radio" id="productivityTag" name="tag" value="productivity" required>
             <label for="productivityTag">Productivity</label><br>
 
             <!-- CONTENT -->
-            <textarea name="blogContent" placeholder="Start writing our blog here.."></textarea><br>
+            <textarea name="blogContent" placeholder="Start writing our blog here.." required></textarea><br>
 
             <button type="submit" class="button">Create</button>
         </form>
 
-    <% }else if(locals.empty){ %>
+    <% } else if(locals.func){ %>
+        <h1>Jova's Blog</h1>
+
         <form>
         <button type="submit" class="button" formaction="/newPost">Create new post</button>
         </form>
 
+        <!-- MAKING THE BLOG CARDS -->
         <% for(let i=0; i< blogList.length; i++){ %>
-            <div class="card">
-                <h2><%= blogList[i][0] %></h2>
-                <p><%= blogList[i][1] %></p>
-            </div>
+            <form action="/viewPost" method="POST">
+                <button class="card-button" name="blogNumber" value="<%= i %>">
+                    <div>
+                        <h2><%= blogList[i][0] %></h2>  
+                        <p><%= blogList[i][1] %></p>
+                    </div>
+                </button>
+            </form>
         <% } %>
         
+    <% }else if(locals.viewPost){ %>
+
+        <%- include("partials/header.ejs") %>
+
+        <h1><%= blog[0] %></h1>
+        <h3><%= blog[1] %></h3>
+        <p><%= blog[2] %></p>
+
+        <form method="POST">
+            <button formaction="/deletePost" class="button"  name="blogNumber" value="<%= blogNumber %>">Delete</button>
+        </form>
+
     <% }else{ %>
+        <h1>Welcome to Jova's Blog</h1>
 
         <p>You haven't created any posts yet.</p>
        <form>
@@ -56,7 +77,5 @@
    <% } %>
    
    <%- include("partials/footer.ejs") %>
-
-   <!-- <script href="functions.js"></script> -->
 </body>
 </html>
