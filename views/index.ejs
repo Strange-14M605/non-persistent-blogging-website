@@ -53,6 +53,19 @@
                 </button>
             </form>
         <% } %>
+
+        <form>
+            <div class="dropdown">
+                <button class="button">My Projects</button>
+                <div class="dropdown-content">
+                  <% for (let i = 0; i < title.length; i++) { %>
+                    <div>
+                      <a href="https://www.notion.so/Commonplace-2f7dbda038f242e4a5fadf235f76e500?pvs=4"><%= title[i] %></a>
+                    </div>
+                  <% } %>
+                </div>
+              </div>    
+        </form>
         
     <% }else if(locals.viewPost){ %>
 
